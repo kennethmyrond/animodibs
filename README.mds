@@ -1,0 +1,12 @@
+ANIMODIBS
+created by:
+    ABALOS, Maria Alessandra 
+    BERNARDO, Erica 
+    UY, Kenneth Myrond
+    UY, Rianna Ricci
+
+INSTRUCTIONS:
+
+1. Type "npm run devStart" in the VScode terminal to start server
+
+2. Go to your browser and type "localhost:3000"
