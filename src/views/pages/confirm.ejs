@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="/css/confirm.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+      <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+            <li>
+              <img src="/pics/logo.png" class="logo">
+            </li>
+            <li class="choices">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/reservation">Create Reservation</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/favorites">Favorites</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/rooms">Rooms</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/home/about">About</a>
+            </li>
+
+            <div id="naviconusername">
+              <img id="navusericon" src="<%=usericon%>">
+              <p id="navusername"><b><%=lname%>, <%= fname %></b></p>
+            </div>
+            <div class="new-menu">
+              <nav>
+                <img src="/pics/arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                <div class="sub-menu-wrap" id="subMenu">
+                  <div class="sub-menu">
+                    <a href="/myaccount" class="sub-menu-link">
+                      <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                    </a>
+                    <a href="/auth/logout" class="sub-menu-link">
+                      <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+
+            </div>
+        </div>
+      </div>
+    </nav>
+    <script src="/js/dash.js"></script> 
+  </header>
+    <br><br><br><br><br>
+
+    <h1 class="name">Confirm Reservation</h1>
+
+    <div class="left">
+      <h3 class="inline">Room Number: </h3><span>
+        <%= roomSolo.room_num%>
+      </span>
+
+      <br>
+      <h3 class="inline">Building: </h3>
+      <span class="in">
+        <%= roomSolo.location%>
+      </span>
+      <br>
+      <h3 class="inline">Date: </h3><span>
+        <%= dateto%> to <%= datefrom%>
+      </span>
+
+      <br>
+      <h3 class="inline">Time: </h3><span>
+        <%= time%>
+      </span>
+      <br>
+      <h3 class="inline">Recurring Days:</h3><span>
+        <% for (let i=0; i < arrdays.length; i++) { %>
+          <ul>
+            <li>
+              <%= arrdays[i]%>
+            </li>
+          </ul>
+          <% } %>
+      </span>
+
+      <form id="hidden" name="hidden">
+        <input type="text" class="hide" name="room_id" value="<%= roomSolo._id%>">
+        <input type="text" class="hide" name="time" value="<%= time%>">
+        <input type="text" class="hide" name="dateto" value="<%= dateto%>">
+        <input type="text" class="hide" name="datefrom" value="<%= datefrom%>">
+        <input type="text" class="hide" name="arrdays" value="<%= arrdays%>">
+      </form>
+
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="right">
+      <form id="reservation" name="reservation">
+        <label for="roomnumber" class="in">Event Name</label>
+        <br>
+        <input type="text" id="event_name" name="event_name"><span class="error" id="error"></span>
+        <br>
+        <br>
+        <label for="roomnumber">Event Organizer</label>
+        <br>
+        <input type="text" id="organizer" name="organizer"><span class="error" id="error2"></span>
+        <br>
+        <br>
+        <label for="roomnumber">Remarks</label>
+        <br>
+        <textarea id="remarks" name="remarks"></textarea>
+        <br>
+        <br>
+        <!-- <div>
+          <span class="terms">Terms and Conditions </span><br>
+          <input type="checkbox" id="terms" name="terms">
+          <label for="check">I agree to the terms and conditions</label>
+        </div>-->
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <button class="submit" name="submit" id="submit" type="submit">
+          Reserve
+        </button>
+
+    </div>
+    </form>
+    <script src="/js/confirm.js">
+
+    </script>
+</body>
+
+</html>

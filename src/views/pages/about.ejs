@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- insert this for head files -->
+    <%- include('../partials/head'); %>
+    <!-- <link rel="stylesheet" href="css/about.css"> -->
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+  <!-- insert this for navbar -->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+      <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+            <li>
+              <img src="/pics/logo.png" class="logo">
+            </li>
+            <li class="choices">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/createreservation">Create Reservation</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/favorites">Favorites</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/rooms">Rooms</a>
+            </li>
+            <li class="choices">
+                <a class="nav-link" href="/home/about">About</a>
+              </li>
+
+            <div id="naviconusername">
+              <img id="navusericon" src="<%=usericon%>">
+              <p id="navusername"><b><%=lname%>, <%= fname %></b></p>
+            </div>
+            <div class="new-menu">
+              <nav>
+                <img src="/pics/arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                <div class="sub-menu-wrap" id="subMenu">
+                  <div class="sub-menu">
+                    <a href="/myaccount" class="sub-menu-link">
+                      <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                    </a>
+                    <a href="/auth/logout" class="sub-menu-link">
+                      <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+
+            </div>
+        </div>
+      </div>
+    </nav>
+    <script src="/js/dash.js"></script> 
+  </header>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+    body{
+      font-family: 'Montserrat';
+    }
+  </style>
+  <br><br><br><br><br>
+    <h1 style="padding: 0px 70px; font-weight: 900;"><%= title1%></h1>
+    <br>
+    <div style="padding: 0px 90px;">
+        <img src="/pics/blogo.png" width="500px"><br>
+        <p style="font-style: italic; padding: 10px 0px;">Created By: Abalos, Bernardo, Uy, K., Uy, R.</p>
+        <p style="width: 70%;"><b>AnimoDIBS</b> is a tool that will show all the possible rooms in every building that are available for use. The application will show the time slots for the availability of the rooms along with the status of the room, that is if it is vacant or occupied on a particular day and time.</p>
+        <hr style="width: 70%;">
+        <h3><b>Installed NPM Packages</b></h3>
+        <ul>
+            <li>connect-mongo</li>
+            <li>cookie-session</li>
+            <li>dotenv</li>
+            <li>ejs</li>
+            <li>express</li>
+            <li>express-handlebars</li>
+            <li>express-session</li>
+            <li>moment</li>
+            <li>mongodb</li>
+            <li>mongoose</li>
+            <li>morgan</li>
+            <li>nodemon</li> 
+            <li>passport</li>
+            <li>passport-google-oauth</li>       
+        </ul>
+        <h3><b>Third-Party Libraries</b></h3>
+        <ul>
+            <li>Bootstrap</li>
+            <li>daterangepicker</li>
+            <li>Moment</li>
+            <li>Popper</li>      
+        </ul>
+    </div>
+    <br><br>
+</body>
+
+</html>

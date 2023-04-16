@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- insert this for head files -->
+   <%- include('../partials/head'); %>
+   <link rel="stylesheet" href="/css/event-info.css">
+   <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <%- include('../partials/navbar'); %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    <h1 class="search-input"><%=title%></h1>
+    
+    <div class="all-events">
+        <br>
+        <div class=details>
+            <br> ORGANIZER: <%= reservationSolo.organizer_name %>
+            <br> TIME: <%= reservationSolo.time %>
+            </p>
+        </div>
+    </div>
+    <div class="close-button">
+        <a href="/home" target="_self" class="Exit-text">Exit</a>
+    </div>
+</body>
+</html>

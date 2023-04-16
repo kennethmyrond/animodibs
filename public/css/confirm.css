@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root {
+    --primary: rgb(100, 141, 100);
+    --rsecondary: #eaeaea;
+    --txt-primary: #000000;
+    --txt-secondary: #ffffff;
+}
+
+body {
+    font-family: Montserrat;
+    padding: 10px 70px;
+    overflow-x: auto;
+}
+
+h1.name {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+span,
+label {
+    font-size: 21px;
+}
+
+
+#days {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+div {
+    display: inline-block;
+}
+
+div.left {
+    background-color: var(--rsecondary);
+    padding: 2% 2% 0% 2%;
+    margin-right: 3%;
+    font-family: Montserrat;
+    width: 35%;
+}
+
+div.right {
+    vertical-align: top;
+    padding: 2% 2% 15% 2%;
+    font-family: Montserrat;
+    width: 45%;
+}
+
+#remarks {
+    height: 150px;
+    width: 80%
+}
+
+.terms {
+
+    margin-bottom: 0%;
+}
+
+.submit {
+    background: var(--primary-nav);
+    color: var(--secondary-nav);
+    border: solid;
+    text-shadow: none;
+    float: right;
+    font-size: 22px;
+    outline: none;
+
+}
+
+.submit:hover {
+    background: rgb(123, 140, 123);
+    color: var(--txt-secondary);
+    text-shadow: none;
+}
+
+.popup {
+    width: 400px;
+    background: var(--rsecondary);
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0px 33px 33px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.095);
+}
+
+.popup .tick {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+
+}
+
+.popup #close-button {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    right: 20px;
+    border-radius: 50%;
+    vertical-align: baseline;
+    text-align: center;
+    line-height: 1px;
+}
+
+.popup h2 {
+    font-size: 42px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: var(--primary-nav);
+    color: var(--txt-secondary);
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}

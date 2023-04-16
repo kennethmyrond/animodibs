@@ -1,0 +1,355 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.72.0">
+    <title>AnimoDibs | Favorites</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="favorites.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"></script>
+
+
+
+  </head>
+
+  <body>
+    <style>
+      :root {
+        --primary-nav: rgb(100, 141, 100);
+        --secondary-nav: white;
+      }
+
+      .bg-custom {
+        background-color: var(--primary-nav);
+      }
+
+      .logo {
+        height: 70px;
+        padding-top: 9px;
+
+      }
+
+
+      .menu {
+        list-style-type: none;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        height: 80px;
+        margin: 0;
+        padding-left: 10;
+        background-color: rgb(47, 44, 44);
+      }
+
+      .navbar-nav {
+        float: left;
+      }
+
+
+
+      .choices {
+
+        display: block;
+        font-family: Montserrat;
+        text-align: left;
+        padding: 14px 16px;
+        padding-top: 20px;
+        text-decoration: none;
+
+      }
+
+     .choices a{
+        color: #d9d9d9!important;
+      }
+
+      .choices a:hover {
+      color: #c8c8c8!important;
+      }
+
+
+      .username {
+        position: absolute;
+        /*float: right;*/
+        right: 255px;
+        top: 27;
+        text-decoration: none;
+        text-align: center;
+        height: 35px;
+        width: 35px;
+        background-color: var(--secondary-nav);
+        border-radius: 50px;
+      }
+
+
+      .initials {
+        color: black;
+        padding-left: 7px;
+        padding-top: 5px;
+        font-family: Montserrat;
+
+      }
+
+
+      .menu-pic {
+        position: absolute;
+        width: 20px;
+        right: 50px;
+        top: 20px;
+      }
+
+      .sub-menu-wrap {
+        position: absolute;
+        top: 100%;
+        right: 50px;
+        width: 320px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+      }
+
+      .sub-menu-wrap.open-menu {
+        max-height: 400px;
+      }
+
+      .sub-menu {
+        background: var(--secondary-nav);
+        padding: 5px;
+        margin: 7px;
+        float: right;
+        border-style: solid;
+      }
+
+
+      .sub-menu-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #525252;
+        margin: 12px 0;
+      }
+
+      .sub-menu-link p {
+        width: 100%;
+      }
+
+      .sub-menu-link span {
+        font-size: 22px;
+        transition: transform 0.5s;
+      }
+
+      .sub-menu-link:hover span {
+        transform: translateX(5px);
+      }
+
+      .sub-menu-link:hover p {
+        font-weight: 600;
+        color: var(--primary-nav);
+      }
+</style>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+        <div class="container-fluid">
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+              <li>
+                <img src="logo.png" class="logo">
+              </li>
+              <li class="choices">
+                <a class="nav-link" aria-current="page" href="dashboard.html">Home</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="reservation.html">Create Reservation</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="favorites.html">Favorites</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="myrooms.html">Rooms</a>
+              </li>
+
+              <div class="username">
+                <p class="initials">
+                  JC<span><b>&nbsp;&nbsp;&nbsp;&nbsp;DELA</span><span>&nbsp;&nbsp;CRUZ,</span><span>&nbsp;&nbsp;JUAN</span>
+                </p>
+              </div>
+              <div class="new-menu">
+                <nav>
+                  <img src="arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                  <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                      <a href="myaccount.html" class="sub-menu-link">
+                        <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                      <a href="#" class="sub-menu-link">
+                        <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+
+              </div>
+          </div>
+        </div>
+        <script src="dash.js"></script>
+      </nav>
+    </header>
+    <div class="lead">
+      <h1 style="color:black!important">Favorites</h1>
+      <p>See all my favorite rooms in DLSU</p>
+    </div>
+    <div class="sort d-flex align-items-center">
+      <h3 class="me-2 px-2">SORT</h3>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+      </svg>
+    </div>
+
+
+    <div class="container-fluid" id="fav">
+      <div class="card mb-3 w-100" style="max-width: 1300px; background-color: lightgray;">
+        <div class="row g-0">
+          <div class="col-md-4" style="width:20%">
+            <img src="andrew.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body d-flex justify-content-between align-items-start">
+              <div class="details">
+                <a href="GK306B-details.html">
+                  <h3 class="card-title">GK306B COMPUTER LABORATORY</h3>
+                </a>
+                <p class="card-text">LOCATION: Gokongwei Hall<br>
+                  FLOOR: 9TH<br>
+                  MAX #OF GUESTS: 25 <br></p>
+              </div>
+              <div class="button">
+                <button class="btn btn-primary remove-favorite">REMOVE FROM FAVORITES</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="fav">
+      <div class="card mb-3 w-100" style="max-width: 1300px; background-color: lightgray;">
+        <div class="row g-0">
+          <div class="col-md-4" style="width:20%">
+            <img src="andrew.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body d-flex justify-content-between align-items-start">
+              <div class="details">
+                <a href="GK306A-details.html">
+                  <h3 class="card-title">GK306A COMPUTER LABORATORY</h3>
+                </a>
+                <p class="card-text">LOCATION: Gokongwei Hall<br>
+                  FLOOR: 9TH<br>
+                  MAX #OF GUESTS: 25 <br></p>
+              </div>
+              <div class="button">
+                <button class="btn btn-primary remove-favorite">REMOVE FROM FAVORITES</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="fav">
+      <div class="card mb-3 w-100" style="max-width: 1300px; background-color: lightgray;">
+        <div class="row g-0">
+          <div class="col-md-4" style="width:20%">
+            <img src="andrew.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body d-flex justify-content-between align-items-start">
+              <div class="details">
+                <a href="GK304B-details.html">
+                  <h3 class="card-title">GK304B COMPUTER LABORATORY</h3>
+                </a>
+                <p class="card-text">LOCATION: Gokongwei Hall<br>
+                  FLOOR: 9TH<br>
+                  MAX #OF GUESTS: 45 <br></p>
+              </div>
+              <div class="button">
+                <button class="btn btn-primary remove-favorite">REMOVE FROM FAVORITES</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="fav">
+      <div class="card mb-3 w-100" style="max-width: 1300px; background-color: lightgray;">
+        <div class="row g-0">
+          <div class="col-md-4" style="width:20%">
+            <img src="andrew.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body d-flex justify-content-between align-items-start">
+              <div class="details">
+                <a href="GK304A-details.html">
+                  <h3 class="card-title">GK304A COMPUTER LABORATORY</h3>
+                </a>
+                <p class="card-text">LOCATION: Gokongwei Hall<br>
+                  FLOOR: 9TH<br>
+                  MAX #OF GUESTS: 25 <br></p>
+              </div>
+              <div class="button">
+                <button class="btn btn-primary remove-favorite">REMOVE FROM FAVORITES</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="fav">
+      <div class="card mb-3 w-100" style="max-width: 1300px; background-color: lightgray;">
+        <div class="row g-0">
+          <div class="col-md-4" style="width:20%">
+            <img src="andrew.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body d-flex justify-content-between align-items-start">
+              <div class="details">
+                <a href="GK302B-details.html">
+                  <h3 class="card-title">GK302B COMPUTER LABORATORY</h3>
+                </a>
+                <p class="card-text">LOCATION: Gokongwei Hall<br>
+                  FLOOR: 9TH<br>
+                  MAX #OF GUESTS: 25 <br></p>
+              </div>
+              <div class="button">
+                <button class="btn btn-primary remove-favorite">REMOVE FROM FAVORITES</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="favorites.js"></script>
+  </body>
+
+  </html>

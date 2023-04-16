@@ -1,0 +1,54 @@
+<DOCTYPE html>
+    <html lang="en">
+  
+    <head>
+        <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="css/myrooms.css">
+        <link rel="stylesheet" href="css/navbar.css">
+    </head>
+  
+    <body>
+        <%- include('../partials/navbar'); %>
+        <br>
+        <br>
+       
+        <div class="container">
+            <h1><%= title %></h1>
+            <p>See all rooms available for <%= new Date().toLocaleDateString() %></p>
+            
+            <% rooms.forEach(rooms => { %>
+                <div class="cards">
+                  <div class="container-fluid">
+                    <div class="card mb-3 w-100" style="max-width: 1500px; background-color: lightgray;">
+                      <div class="row g-0">
+                        <div class="col-md-4" style="width:20%">
+                          <!-- image of room -->
+                          <img src="<%= rooms.img[0] %>" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body d-flex justify-content-between align-items-start">
+                            <div class="details">
+                              <!-- showing short details of per room -->
+                              <h4 class="card-title"><%= rooms.room_num %></h4>
+                              <p class="card-text">LOCATION: <%= rooms.location %></p>
+                              <p class="card-text">FLOOR: <%= rooms.floor %></p>
+                              <p class="card-text">MAX # GUESTS: <%= rooms.guest_num %></p>
+                            </div>
+                            <div class="room-actions">
+                              <a href="/rooms/<%= rooms._id %>?dateto=<%=datenow%>&datefrom=<%=datenow%>&dayCheck=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"><button class="green-btn" onclick="window.location.href='/<%= rooms._id %>' ;"> AVAILABLE </button></a>
+                            </div> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% }) %>
+   
+           
+        </div>
+
+      <br><br><br><br><br>
+  
+      
+    </body>
+   

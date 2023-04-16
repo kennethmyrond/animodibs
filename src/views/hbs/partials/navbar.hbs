@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="css/navbar.css">
+{{!-- 
+    <style>
+        .root {
+          --primary: rgb(100, 141, 100);
+        }
+  
+        .bg-custom {
+          background-color: var(--primary);
+        }
+      </style> --}}
+      <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+          <div class="container-fluid">
+  
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+                <li>
+                  <img src="pics/logo.png" class="logo">
+                </li>
+                <li class="choices">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="choices">
+                  <a class="nav-link" href="/reservation">Create Reservation</a>
+                </li>
+                <li class="choices">
+                  <a class="nav-link" href="/favorites">Favorites</a>
+                </li>
+                <li class="choices">
+                  <a class="nav-link" href="/rooms">Rooms</a>
+                </li>
+  
+                <div class="username">
+                  <p class="initials">
+                    JC<span><b>&nbsp;&nbsp;&nbsp;&nbsp;DELA</span><span>&nbsp;&nbsp;CRUZ,</span><span>&nbsp;&nbsp;JUAN</span>
+                  </p>
+                </div>
+                <div class="new-menu">
+                  <nav>
+                    <img src="pics/arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                    <div class="sub-menu-wrap" id="subMenu">
+                      <div class="sub-menu">
+                        <a href="myaccount.html" class="sub-menu-link">
+                          <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+                        </a>
+                        <a href="/login" class="sub-menu-link">
+                          <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+                        </a>
+                      </div>
+                    </div>
+                  </nav>
+  
+                </div>
+            </div>
+          </div>
+        </nav>
+        <!--<script src="dash.js"></script>-->
+        
+        <script>
+          let subMenu = document.getElementById("subMenu");
+  
+          function toggleMenu()
+          {
+            subMenu.classList.toggle("open-menu");
+          }
+          
+  
+      </header>

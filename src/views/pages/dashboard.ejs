@@ -1,0 +1,218 @@
+<DOCTYPE html>
+    <html lang="en">
+  
+    <head>
+        <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+  
+    <body>
+        <%- include('../partials/navbar'); %>
+  
+      <br><br><br><br><br>
+  
+      <div class="search-box">
+        <p id="displayDateTime">timehere</p>
+        <h1>Welcome Back, Archer</h1>
+        <input type="text" placeholder="Search a room" id="searchbar" class="input-box1">
+          <button type="submit" id="searchBtn" class="search-button">Search</button>
+        </a>
+      </div>
+  
+      <br>
+      <br>
+  
+      <div class="box-avail">
+        <h2>Available Rooms Today</h2>
+        <div class="see-more">
+          <p>
+            <a href="/see-more-rooms" class="see-more-link">See More</a>
+          </p>
+        </div>
+      </div>
+      <br>
+      <br>
+    <div class="container">
+    
+      <!-- available rooms -->
+      <% if (rooms.length > 0) { %>
+        <% for (let i = 0; i < 4; i++) { %>
+            <div class="room-details" href="/rooms/<%= rooms[i].id %>">
+                <div class="available-box">
+                    <p>Available</p>
+                </div>
+                <br>
+                <img src="<%= rooms[i].img[0] %>" class="room-pic" alt="room" style="width: 250px;">
+                <br><br>
+                <h4 class="room-title"><b><a href="/rooms/<%= rooms[i]._id %>?dateto=<%=datenow%>&datefrom=<%=datenow%>&dayCheck=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"><%= rooms[i].room_num %></a></b></h4>
+                <p class="room-desc">
+                    LOCATION: <%= rooms[i].location %><br>
+                    FLOOR: <%= rooms[i].floor %><br>
+                    # OF GUEST/S: <%= rooms[i].guest_num %>
+                </p>
+            </div>
+        <% } %>
+    <% } else { %>
+        <h2 style="color: black">EMPTY ROOMS</h2>
+    <% } %>
+    </div>
+      <br><br>
+    
+      <hr class="horizontal-line">
+      <br>
+      <div class="box-plain">
+        <h2 class="plain-text">My Reservations</h2>
+        <div class="see-more">
+          <p>
+            <a href="/reservations" class="see-events-link">See More</a>
+          </p>
+        </div>
+      </div>
+        <br>
+      <div class="box">
+        <% if (reservations.length > 0) { %>
+          <% let j=1; if(reservations.length > 1){j=2}else{j=1}%>
+          <% for (let i = 0; i < j; i++) { %>
+              <div class="box2">
+                <h4 class="class-title">
+                  <b><br><%= reservations[i].event_name %></b>
+                  <p class="room-desc">
+                    ORGANIZER: <%= reservations[i].organizer_name %><br>
+                    Time: <%= reservations[i].time %>
+                  </p>
+                </h4>
+                <div>
+                  <a href="/reservations/<%= reservations[i]._id %>" id="reserv-info1">
+                    <img id="seemore-icon" src="pics/info.png" class="reserve-more-button">
+                  </a>
+                </div>
+                
+              </div> 
+              
+            <br>
+          <% } %>
+        <% } else { %>
+          <h2 style="color: black; margin-left:35px ;">No reserved rooms yet</h2>
+        <% } %>  
+      </div>
+
+      <br><br>
+      <hr class="horizontal-line">
+      <br>
+      <div class="box-plain">
+        <h2 class="plain-text"><%=title2 %></h2>
+        <div class="see-more">
+          <p>
+            <a href="/see-more-events" class="see-events-link">See More</a>
+          </p>
+        </div>
+        <br>
+      </div>
+        <div class="box"> 
+        <% if (events.length > 0) { %>
+          <% let j=1; if(events.length > 1){j=2}else{j=1}%>
+          <% for (let i = 0; i < j; i++) { %>
+              <br>
+              <div class="box2">
+                <h4 class="class-title">
+                  <b><br><%= events[i].event_name %></b>
+                  <p class="room-desc">
+                    LOCATION: <%= events[i].location %><br>
+                    ROOM: <%= events[i].room_num %><br>
+                    DATE: <%= events[i].date %><br>
+                    TIME: <%= events[i].time %><br>
+                  </p>
+                </h4>
+                <div>
+                  <a href="/home/viewevents/<%= events[i]._id %>" id="event-info1" >
+                    <img id="seemore-icon" src="pics/info.png" class="reserve-more-button">
+                  </a>
+                </div>         
+              </div> 
+            <br>
+          <% } %>
+        <% } else { %>
+          <h2 style="color: black">No Events</h2>
+        <% } %>
+      </div>
+      <!--
+      <div>
+      <br>
+      <div class="green-box">
+        <br>
+        <div class="box2">
+          <h4 class="reservation-titlename">
+            <b></b>
+          </h4>
+        </div>
+      </div>
+      <br>
+      -->
+
+      
+        
+      
+        <style>
+          .more-button {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            margin-left: 1000;
+            margin-top: -100px;
+          }
+    
+          .reserve-more-button {
+    
+            right: -900;
+            top: -79;
+            position: relative;
+            height: 20px;
+            width: 20px;
+          }
+    
+          .reserve-delete-button {
+            right: -960;
+            top: -100;
+            position: relative;
+            height: 20px;
+            width: 20px;
+          }
+    
+          .reserve-edit-button {
+            right: -1020;
+            top: -120;
+            position: relative;
+            height: 20px;
+            width: 20px;
+          }
+        </style>
+    
+        <script>
+          let today = new Date();
+          let day = today.getDay();
+          let daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+          let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+          let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          let dateTime = date + ' ' + time;
+
+          document.getElementById("displayDateTime").innerHTML = dateTime + ', ' + daylist[day];
+
+          // function openRoom(room){
+          //   window.location.href="/rooms/" + room;
+          // }
+
+          let search = document.querySelector("#searchBtn")
+          search.addEventListener('click', function(e){
+            let lookat = document.querySelector("#searchbar").value
+            lookat = lookat.toUpperCase()
+            window.location.href='/search?q='+lookat
+          })
+        </script>
+        <!-- <script src="js/dash.js"></script> -->
+
+        <%- include('../partials/footer'); %>
+    </body>
+  
+    </html>

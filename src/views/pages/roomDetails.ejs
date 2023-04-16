@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- insert this for head files -->
+    <%- include('../partials/head.ejs'); %>
+    <link rel="stylesheet" href="/css/room-details.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/modals.css">
+    
+</head>
+
+<body>
+    <!-- insert this for navbar -->
+    <!-- <%- include('../partials/navbar'); %> -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+        <div class="container-fluid">
+  
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+              <li>
+                <img src="/pics/logo.png" class="logo">
+              </li>
+              <li class="choices">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/createreservation">Create Reservation</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/favorites">Favorites</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/rooms">Rooms</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/home/about">About</a>
+              </li>
+  
+              <div id="naviconusername">
+                <img id="navusericon" src="<%=usericon%>">
+                <p id="navusername"><b><%=lname%>, <%= fname %></b></p>
+              </div>
+              <div class="new-menu">
+                <nav>
+                  <img src="/pics/arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                  <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                      <a href="/myaccount" class="sub-menu-link">
+                        <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                      <a href="/auth/logout" class="sub-menu-link">
+                        <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+  
+              </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/js/dash.js"></script> 
+    </header>
+
+    <div class="information"><br><br><br><br>
+    <img class="room" id="mainPic" src="/<%= roomSolo.img[0]%>" alt="room">
+    <div class="img-carousel">
+      <img class="thumbnails" id="thMain" src="/<%= roomSolo.img[0]%>" alt="room" onclick="enlargePic(id)"><br>
+      <img class="thumbnails" id="th1" src="/<%= roomSolo.img[1]%>" onclick="enlargePic(id)"><br>
+      <img class="thumbnails" id="th2" src="/<%= roomSolo.img[2]%>" onclick="enlargePic(id)"><br>
+      <img class="thumbnails" id="th3" src="/pics/maps/<%= roomSolo.room_num%>.png" onclick="enlargePic(id)">
+    </div>
+    
+    <!-- showing details of room -->
+    <div class="details">
+      <h3 id="name"><%= roomSolo.room_num %></h3>
+      <p id="roomId"><%= roomSolo._id%></p>
+      <div class="sub-details">
+        <label id="location">LOCATION: <%= roomSolo.location%></p>
+          <p id="floor">FLOOR: <%= roomSolo.floor%></p>
+          <p id="numberGuest">MAX # OF GUESTS: <%= roomSolo.guest_num%></p>
+          <p id="roomId" value="<%= roomSolo.room_num%>"></p>
+      </div>
+      <br><br><br>
+      <div class="sub-details">
+        <p>Special Equipments:</p>
+        <ul>
+          <% for(let i=0; i<roomSolo.equipments.length; i++) {%>
+            <li><%= roomSolo.equipments[i] %></li>
+          <% } %>
+        </ul>
+      </div>
+      <div id="favorite">
+        <% if(isFave===null){ %>
+          <button type="submit" id="btn-favorite" onclick="addFav()" value="0">Add to Favorites</button>
+        <% } else { %>
+          <button type="submit" id="btn-favorite" onclick="addFav()" value="1">Remove From Favorites</button>
+        <% } %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="input-sched">
+    <hr>
+    <div class="date_toFrom">
+      <!-- action='/rooms/<%= roomSolo._id%>' method='get' -->
+      <form >
+        <label class="form-label date-label col" for="daterange">DATE:</label>
+        <input class="form-control col" id="inputdate" type="text" name="daterange" value="<%=dateto%> - <%=datefrom%>"/>
+        <img class="calendar-icon" src="/pics/calendar.png"></span>
+      </form>
+    </div>
+    <div class="input-day">
+      <form id="input-day1">
+        <!-- <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="any" checked>&nbsp;Any Day</span> -->
+        <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="Monday" checked>&nbsp;Monday</span>
+        <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="Tuesday" checked>&nbsp;Tuesday</span>
+        <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="Wednesday" checked>&nbsp;Wednesday</span>
+        <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="Thursday" checked>&nbsp;Thursday</span>
+        <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="Friday" checked>&nbsp;Friday</span>
+        <span class="day"><input type="checkbox" class="checkJobToSend" name="dayCheck" value="Saturday" checked>&nbsp;Saturday</span>
+      </form>
+    </div>
+    <div class="submit">
+      <form>
+        <input id="submitbtn" class="btn1a" type="button" value="Search">
+      </form>
+    </div>
+  </div>
+  <div id = "scheduleDiv">
+    <table class="schedule">
+      <tr>
+        <th>Time </th>
+        <th>Availability</th>
+        <th>Reserve</th>
+        <th>Details</th>
+      </tr>
+      
+      <tr>
+        <td id = "t1" class="form-time">7:30 - 9:00</td>
+          <% if(!reservations1){ %>
+            <td id="sched1" class="available"> AVAILABLE </td>
+            <td id="status1" class="col-status"><button type="submit" class="btn-reserve" >RESERVE</button> </td>
+            <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+          <% } else { %>
+            <td id="sched1" class="reserved"> RESERVED </td>
+            <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+            <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button></td>
+          <% } %>
+        
+      </tr>
+      <tr>
+        <td class="form-time">9:15 - 10:45</td>
+        <% if(!reservations2){ %>
+          <td id="sched2" class="available"> AVAILABLE </td>
+          <td id="status2" class="col-status"><button type="submit" class="btn-reserve">RESERVE</button> </td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+        <% } else { %>
+          <td id="sched2" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button></td>
+        <% } %>
+      </tr>
+      <tr>
+        <td class="form-time">11:00 - 12:30</td>
+        <% if(!reservations3){ %>
+          <td id="sched3" class="available"> AVAILABLE </td>
+          <td id="status3" class="col-status"><button type="submit" class="btn-reserve">RESERVE</button> </td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+        <% } else { %>
+          <td id="sched3" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+        <% } %>
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time">12:45 - 2:15</td>
+        <% if(!reservations4){ %>
+          <td id="sched3" class="available"> AVAILABLE </td>
+          <td id="status3" class="col-status"><button type="submit" class="btn-reserve">RESERVE</button> </td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+        <% } else { %>
+          <td id="sched3" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+        <% } %>
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time">2:30 - 4:00</td>
+        <% if(!reservations5){ %>
+          <td id="sched3" class="available"> AVAILABLE </td>
+          <td id="status3" class="col-status"><button type="submit" class="btn-reserve">RESERVE</button> </td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+        <% } else { %>
+          <td id="sched3" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button></td>
+          <% } %>
+      </tr>
+      <tr>
+        <td class="form-time">4:15 - 5:45</td>
+        <% if(!reservations6){ %>
+          <td id="sched3" class="available"> AVAILABLE </td>
+          <td id="status3" class="col-status"><button type="submit" class="btn-reserve">RESERVE</button> </td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+        <% } else { %>
+          <td id="sched3" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button></td>
+        <% } %>
+      </tr>
+      <tr>
+        <td class="form-time">6:00 - 7:30</td>
+        <% if(!reservations7){ %>
+          <td id="sched3" class="available"> AVAILABLE </td>
+          <td id="status3" class="col-status"><button type="submit" class="btn-reserve">RESERVE</button> </td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()" disabled=true>View Details</button></td>
+        <% } else { %>
+          <td id="sched3" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" disabled=true >UNAVAILABLE</button></td>
+          <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button></td>
+        <% } %>
+      </tr>
+    </table>
+  </div>
+
+
+  <%- include('../partials/popup-details'); %>
+
+  <div class="popup-details" id="popup-waitlist">
+    <h3> Waitlisted! </h3>
+    <p>Your account was added to the waitlist!</p>
+    <p>You will be notified for the room availability</p>
+    <button type="button" onclick="closePopupWait()">Close</button>
+  </div>
+
+  <!-- public/js/room-details -->
+  <script src="/js/room-details.js"></script> 
+  <!-- this id for popups in view details -->
+  <script src="/js/modals.js"></script>
+</body>
+</html>

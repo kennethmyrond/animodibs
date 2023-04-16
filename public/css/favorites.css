@@ -1,0 +1,64 @@
+
+
+.lead{
+    margin-top: 100px;
+}
+
+.lead h1{
+    font-size: 70px;
+    margin-left: 30px;
+
+}
+
+.lead p{
+    margin-left: 95px;
+}
+
+#fav{
+    margin-left:80px!important;
+}
+
+.col-md-4 img{
+    padding: 20px;
+}
+
+.card-text{
+    font-weight: 400;
+    font-size: 18px;
+    
+}
+
+.card-title{
+    font-weight: 700;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+}
+
+.button{
+    position: relative;
+    left: 200;
+    
+}
+
+.btn-primary{
+    background-color: #ff5050!important;
+    border-color: transparent!important;
+    border-radius:20px!important;
+    margin-right: 140px;
+}
+
+.row g-0{
+    width: 70%;
+}
+
+.sort{
+    font-weight: 900;
+    position: absolute;
+    top: 170;
+    right: 140;
+
+}
+

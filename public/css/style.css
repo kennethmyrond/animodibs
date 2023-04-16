@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root{
+    --white: #fff;
+    --google-blue: #4285f4;
+    --button-active-blue: #1669F2;  
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../pics/loginbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Monserrat sans-serif;
+}
+
+#logo{
+    display: block;
+    margin: 0px auto;
+}
+
+.colors{
+    background-color: green;
+    opacity: 50%;
+}
+
+.login{
+    width: 360px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+}
+
+.login h1{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.login form{
+    font-size: medium;
+}
+
+.login form .form-group{
+    margin-bottom: 12px;
+}
+
+.login form input[type="submit"]{
+    font-size: 20px;
+    margin-top: 15px;
+}
+

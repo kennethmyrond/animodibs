@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root{
+    --primary: rgb(91, 112, 91);
+    --secondary: #eaeaea;
+    --txt-primary: #000000;
+    --txt-secondary: #ffffff;
+    --reserved: #ff5050;
+    --available: #A3B98E;
+}
+
+#close-button{
+    margin-left: 100px;
+    background-color: #e3e3e3;
+    outline: 1px solid rgb(180, 180, 180);
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    width: 70px;
+}
+
+body{
+    font-family: Montserrat;
+    padding: 80px 70px; 
+}
+
+#edit{
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    width: 80%;
+    margin: 0px auto;
+}
+
+
+
+#uneditable{
+    flex-grow: 1;
+    margin: 20px 10px;
+    padding: 0px 30px;
+    background-color: var(--secondary);
+    color: var(--txt-primary);
+    border-radius: 10px;
+}
+
+#editable{
+    flex-grow: 3;
+    margin: 20px 10px;
+    padding: 0px 30px;
+    /*background-color: var(--primary);
+    color: var(--txt-secondary);*/
+    border-radius: 10px;
+}
+
+label{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.labeli{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.input{
+    margin-top: 30px;
+}
+
+.info{ /*#uneditable input, select*/
+    background-color: #7f7f7f;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: var(--txt-secondary);
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#editable input{
+    outline: none;
+    border: solid 1px black;
+    width: 45%;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#event-remarks{
+    height: 100px;
+    width: 500px;
+  margin-left: 10px;
+}
+
+#save{
+    background-color: var(--primary);
+    color: var(--txt-secondary);
+    float: right;
+    outline: none;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-update{
+    width: 500px;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 20px;
+    color: var(--txt-primary);
+    visibility: hidden;
+    /*transition: transform 0.4s, top 0.4s;*/
+    transition:linear 0.1s;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    
+}
+
+.popup-update p{
+    text-align: left;
+}
+
+.popup-update button{
+    background-color: var(--primary);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    border: 0px;
+    color: var(--txt-secondary);
+    border-radius: 5px;
+}

@@ -1,0 +1,91 @@
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+            <link rel="stylesheet" href="/css/update-reservation.css">
+            <link rel="stylesheet" href="/css/dashboard.css">
+            <link rel="stylesheet" href="/css/navbar.css">
+    </head>
+    <body>
+      <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+        <div class="container-fluid">
+  
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+              <li>
+                <img src="/pics/logo.png" class="logo">
+              </li>
+              <li class="choices">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/reservation">Create Reservation</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/favorites">Favorites</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/rooms">Rooms</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="/home/about">About</a>
+              </li>
+  
+              <div id="naviconusername">
+                <img id="navusericon" src="<%=usericon%>">
+                <p id="navusername"><b><%=lname%>, <%= fname %></b></p>
+              </div>
+              <div class="new-menu">
+                <nav>
+                  <img src="/pics/arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                  <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                      <a href="/myaccount" class="sub-menu-link">
+                        <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                      <a href="/auth/logout" class="sub-menu-link">
+                        <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+  
+              </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/js/dash.js"></script> 
+    </header>
+        <div class="card mb-3 w-100" style="max-width: 1200px; border: 0; margin: 40px 0 20px 80px;">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div class="details">
+                    <h1 class="card-title" style="color:black; padding-left: 0; margin-top: 6rem; width: 800px;"><%= reservation.event_name %></h1>
+                    <p class="card-text" style="font-size: 25px;">Room: <%= reservation.room_num.room_num %><br>
+                      Date: <%= reservation.date_from.toDateString() %> <span>-</span> <%= reservation.date_to.toDateString() %><br>
+                      Time: <%= reservation.time %> <br>
+                      Organizer: <%= reservation.organizer_name %><br>
+                      Remarks: <%= reservation.remarks %><br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <!-- <a href="/home" target="_self" class="Exit-text">Exit</a> -->
+            <form>
+              <a href="/home" target="_self" class="Exit-text"><input id="close-button" type="button" value="Exit"></a>
+            </form>
+          </div>
+                    <!-- <script src="favorites.js"></script> -->
+        <script>
+
+
+
+        </script>
+</body>
+
+</html>

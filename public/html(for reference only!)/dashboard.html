@@ -1,0 +1,358 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.72.0">
+    <title>AnimoDibs | Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
+  </head>
+
+  <body>
+    <style>
+      .root {
+        --primary: rgb(100, 141, 100);
+      }
+
+      .bg-custom {
+        background-color: var(--primary);
+      }
+    </style>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+        <div class="container-fluid">
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+              <li>
+                <img src="logo.png" class="logo">
+              </li>
+              <li class="choices">
+                <a class="nav-link" aria-current="page" href="dashboard.html">Home</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="reservation.html">Create Reservation</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="favorites.html">Favorites</a>
+              </li>
+              <li class="choices">
+                <a class="nav-link" href="myrooms.html">Rooms</a>
+              </li>
+
+              <div class="username">
+                <p class="initials">
+                  JC<span><b>&nbsp;&nbsp;&nbsp;&nbsp;DELA</span><span>&nbsp;&nbsp;CRUZ,</span><span>&nbsp;&nbsp;JUAN</span>
+                </p>
+              </div>
+              <div class="new-menu">
+                <nav>
+                  <img src="arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                  <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                      <a href="myaccount.html" class="sub-menu-link">
+                        <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                      <a href="#" class="sub-menu-link">
+                        <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+
+              </div>
+          </div>
+        </div>
+      </nav>
+      <script src="dash.js"></script>
+      <!--
+      <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function toggleMenu()
+        {
+          subMenu.classList.toggle("open-menu");
+        }
+        -->
+
+    </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="search-box">
+      <p id="displayDateTime"></p>
+      <h1>Welcome Back, Archer</h1>
+      <input type="text" placeholder="Search a room" class="input-box1">
+      <a href="search.html" target="_self">
+        <button type="submit" class="search-button">Search</button>
+      </a>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="box">
+      <h2>Available Rooms Today</h2>
+      <div class="see-more">
+        <p>
+          <a href="myrooms.html" class="see-more-link">See More</a>
+        </p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <div class="room-details">
+        <div class="available-box">
+          <p>Available</p>
+        </div>
+        <br><img src="computer-lab.png" class="room-pic" alt="room" style="width: 250px;">
+        <br><br>
+        <h4 class="room-title"><b><a href="GK302A-details.html">GK302A COMPUTER LABORATORY</a></b></h4>
+        <p class="room-desc">
+          LOCATION: Gokongwei Hall<br>
+          FLOOR: 3RD<br>
+          MAX #OF GUESTS: 25
+        </p>
+      </div>
+      <div class="room-details">
+        <div class="available-box">
+          <p>Available</p>
+        </div>
+        <br><img src="computer-lab.png" class="room-pic" alt="room" style="width: 250px;">
+        <br><br>
+        <h4 class="room-title"><b><a href="GK302B-details.html">GK302B COMPUTER LABORATORY</a></b></h4>
+        <p class="room-desc">
+          LOCATION: Gokongwei Hall<br>
+          FLOOR: 3RD<br>
+          MAX #OF GUESTS: 25
+        </p>
+      </div>
+      <div class="room-details">
+        <div class="available-box">
+          <p>Available</p>
+        </div>
+        <br><img src="computer-lab.png" class="room-pic" alt="room" style="width: 250px;">
+        <br><br>
+        <h4 class="room-title"><b><a href="GK304A-details.html">GK304A COMPUTER LABORATORY</a></b></h4>
+
+        <p class="room-desc">
+          LOCATION: Gokongwei Hall<br>
+          FLOOR: 3RD<br>
+          MAX #OF GUESTS: 25
+        </p>
+      </div>
+      <div class="room-details">
+        <div class="available-box">
+          <p>Available</p>
+        </div>
+        <br><img src="computer-lab.png" class="room-pic" alt="room" style="width: 250px;">
+        <br><br>
+        <h4 class="room-title"><b><a href="GK304B-details.html">GK304B COMPUTER LABORATORY</a></b></h4>
+        <p class="room-desc">
+          LOCATION: Gokongwei Hall<br>
+          FLOOR: 3RD<br>
+          MAX #OF GUESTS: 45
+        </p>
+      </div>
+      <div class="room-details">
+        <div class="available-box">
+          <p>Available</p>
+        </div>
+        <br><img src="computer-lab.png" class="room-pic" alt="room" style="width: 250px;">
+        <br><br>
+        <h4 class="room-title"><b><a href="GK306A-details.html">GK306A COMPUTER LABORATORY</a></b></h4>
+        <p class="room-desc">
+          LOCATION: Gokongwei Hall<br>
+          FLOOR: 3RD<br>
+          MAX #OF GUESTS: 25
+        </p>
+      </div>
+    </div>
+    <br>
+    <br>
+
+
+    <hr class="horizontal-line">
+    <br>
+    <div class="box-plain">
+      <h2 class="plain-text">My Reservations</h2>
+      <div class="see-more">
+        <p>
+          <a href="reservations.html" class="see-events-link">See More</a>
+        </p>
+      </div>
+      <br>
+      <div class="box">
+        <br>
+        <div class="box2">
+          <h4 class="class-title">
+            <b><br>CS-ST MEETING</b>
+            <p class="room-desc">
+              LOCATION: Gokongwei Hall<br>
+              ROOM: GK301<br>
+              DATE: 03-03-2023<br>
+              Time: 13:00-14:30
+            </p>
+          </h4>
+          <div>
+            <a href="event-info1.html" id="event-info1">
+              <img src="info.png" class="reserve-more-button">
+            </a>
+          </div>
+          <div>
+            <a href="delete-reservation.html" id="delete-info">
+              <img src="delete.png" class="reserve-delete-button">
+            </a>
+          </div>
+          <a href="update-reservation.html">
+            <img src="edit.png" class="reserve-edit-button">
+          </a>
+
+        </div>
+        <br>
+        <div class="box2">
+          <h4 class="class-title">
+            <b><br>CCINFOM DB DESIGN DEFENSE</b>
+            <p class="room-desc">
+              LOCATION: Gokongwei Hall<br>
+              ROOM: GK305<br>
+              DATE: 03-03-2023<br>
+              Time: 14:30-16:00
+            </p>
+          </h4>
+          <div>
+            <a href="event-info1.html" id="event-info1">
+              <img src="info.png" class="reserve-more-button">
+            </a>
+          </div>
+          <div>
+            <a href="delete-reservation.html" id="delete-info">
+              <img src="delete.png" class="reserve-delete-button">
+            </a>
+          </div>
+          <a href="update-reservation.html">
+            <img src="edit.png" class="reserve-edit-button">
+          </a>
+
+        </div>
+        <br>
+      </div>
+      <br>
+    </div>
+
+
+    <br>
+    <br>
+    <hr class="horizontal-line">
+    <br>
+    <div class="box-plain">
+      <h2 class="plain-text">My Events</h2>
+      <div class="see-more">
+        <p>
+          <a href="events.html" class="see-events-link">See More</a>
+        </p>
+      </div>
+    </div>
+
+    <br>
+    <div class="box">
+      <br>
+      <div class="box2">
+        <h4 class="class-title">
+          <b><br>CCS FEBRUARY FACULTY MEETING</b>
+          <p class="room-desc">
+            LOCATION: Gokongwei Hall<br>
+            ROOM: GK303<br>
+            DATE: 02-14-2023<br>
+            Time: 18:00-19:30
+          </p>
+        </h4>
+        <a href="event-info1.html" id="event-info1">
+          <img src="info.png" class="more-button">
+        </a>
+
+      </div>
+      <br>
+      <div class="box2">
+        <h4 class="class-title">
+          <b><br>CAP IS2 FINAL THESIS DEFENSE</b>
+          <p class="room-desc">
+            LOCATION: Gokongwei Hall<br>
+            ROOM: GK305<br>
+            DATE: 03-03-2023<br>
+            Time: 14:30-16:00
+          </p>
+        </h4>
+        <a href="event-info2.html" id="event-info2">
+          <img src="info.png" class="more-button">
+        </a>
+      </div>
+      <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <style>
+      .more-button {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        margin-left: 1000;
+        margin-top: -100px;
+      }
+
+      .reserve-more-button {
+
+        right: -900;
+        top: -79;
+        position: relative;
+        height: 20px;
+        width: 20px;
+      }
+
+      .reserve-delete-button {
+        right: -960;
+        top: -100;
+        position: relative;
+        height: 20px;
+        width: 20px;
+      }
+
+      .reserve-edit-button {
+        right: -1020;
+        top: -120;
+        position: relative;
+        height: 20px;
+        width: 20px;
+      }
+    </style>
+
+    <script>
+      let today = new Date();
+      let day = today.getDay();
+      let daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+      let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      let dateTime = date + ' ' + time;
+
+      document.getElementById("displayDateTime").innerHTML = dateTime + ', ' + daylist[day];
+    </script>
+  </body>
+
+  </html>

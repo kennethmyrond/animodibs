@@ -1,0 +1,34 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <%- include('../partials/head'); %>
+            <link rel="stylesheet" href="css/myaccount.css">
+            <link rel="stylesheet" href="css/navbar.css">
+    </head>
+
+    <body>
+        <%- include('../partials/navbar'); %>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class="title">My Account</h1>
+            <hr>
+            <div><img class="pf" src="<%=image%>"></div>
+
+            <div class="right">
+                <br>
+                <h2 class="name">
+                    <%=lname%>, <%= fname %>
+                </h2>
+                <br>
+                <h4>Email Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text"></span>
+                    <%= fname %>_<%=lname%>@dlsu.edu.ph
+                            </span>
+                </h4>
+
+            </div>
+    </body>
+    </html>

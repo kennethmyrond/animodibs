@@ -1,0 +1,45 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <%- include('../partials/head'); %>
+      <link rel="stylesheet" href="css/seemoreevents.css">
+      <link rel="stylesheet" href="css/navbar.css">
+  </head>
+
+  <body>
+      <%- include('../partials/navbar'); %>
+
+      <div class="container">
+          <h1><%= title %></h1>
+          <p>See all your upcoming events!</p>
+          
+          <% events.forEach(events => { %>
+              <div class="cards">
+                <div class="container-fluid">
+                  <div class="card mb-3 w-100" style="max-width: 1500px; background-color: lightgray;">
+                    <div class="row g-0">
+                      <div class="col-md-4" style="width:20%">
+                        <img class="img-fluid rounded-start" alt="..." src="/pics/andrew.jpg">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body d-flex justify-content-between align-items-start">
+                          <div class="details">
+                            <!-- showing short details of per room -->
+                            <a href="/home/viewevents/<%=events._id%>"><h4 class="card-title"><%= events.event_name %></h4>
+                            <p class="card-text">LOCATION: <%= events.location %></p>
+                            <p class="card-text">DATE: <%= events.date %></p>
+                            <p class="card-text">TIME: <%= events.time%></p></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <% }) %>
+      </div>
+    <br><br><br><br><br>
+  </body>
+</html>
+   

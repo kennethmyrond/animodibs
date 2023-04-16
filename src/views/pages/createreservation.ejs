@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="css/reservation.css">
+        <link rel="stylesheet" href="css/navbar.css">
+
+</head>
+
+<body>
+    <%- include('../partials/navbar'); %>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1 class="name">Create Reservation</h1>
+
+        <form id="reservation" name="reservation">
+            <div class="schedule">
+
+                <h2 class="title inline" for="roomselect">1. Enter Event Name:&nbsp;&nbsp;</h2>
+                <input type="text" name="event_name" id="event_name"><span class="error" id="error"></span>
+                <br>
+                <h2 class="title inline" for="roomselect">&nbsp;&nbsp;&nbsp;Select
+                    Room:&nbsp;&nbsp;</h2>
+                <select name="roomselect" id="roomselect">
+                    <% rooms.forEach(rooms=> { %>
+                        <option value="<%= rooms._id %>">
+                            <%= rooms.room_num %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+            <br>
+            <div class="schedule">
+                <h2 class="title">2. Pick a schedule</h2>
+                <div class="inner">
+                    <h3 class="name inline">Specific Date </h3><span class="error2" id="error2"></span>
+
+                    <table class="days">
+                        <tr>
+                            <td class="whole">
+                                <div class="each">
+                                    <div class="cell"><label class="container">Monday</label>
+                                        <div class="check"><input type="checkbox" name="days" value="Monday">
+                                        </div>
+                                    </div>
+                                    <div class="cell"><label class="container">Tuesday</label>
+                                        <div class="check"><input type="checkbox" name="days" value="Tuesday">
+                                        </div>
+                                    </div>
+                                    <div class="cell"><label class="container">Wednesday</label>
+                                        <div class="check"><input type="checkbox" name="days" value="Wednesday">
+                                        </div>
+                                    </div>
+                                    <div class="cell"><label class="container">Thursday</label>
+                                        <div class="check"><input type="checkbox" name="days" value="Thursday">
+                                        </div>
+                                    </div>
+                                    <div class="cell"><label class="container">Friday</label>
+                                        <div class="check"><input type="checkbox" name="days" value="Friday">
+                                        </div>
+                                    </div>
+                                    <div class="cell"><label class="container">Saturday</label>
+                                        <div class="check"><input type="checkbox" name="days" value="Saturday">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <label for="start">Start date:&nbsp;</label>
+                    <input type="date" id="data_from" name="data_from"><span class="error3" id="error3"></span>
+                    <br>
+                    <label for="start">End date:&nbsp;&nbsp;</label>
+                    <input type="date" id="data_to" name="data_to"><span class="error3" id="error4"></span>
+
+                </div>
+                <br>
+                <div class="inner">
+                    <h3 class="name inline">Time:&nbsp;</h3>
+                    <select name="time" id="timeselect">
+                        <option value="">--Please choose a timeslot--</option>
+                        <option value="7:30 - 9:00">7:30 - 9:00</option>
+                        <option value="9:15 - 10:45">9:15 - 10:45</option>
+                        <option value="11:00 - 12:30">11:00 - 12:30</option>
+                        <option value="12:45 - 2:15">12:45 - 2:15</option>
+                        <option value="2:30 - 4:00">2:30 - 4:00</option>
+                        <option value="4:15 - 5:45">4:15 - 5:45</option>
+                        <option value="6:00 - 7:30">6:00 - 7:30</option>
+                    </select><span class="error5" id="error5"></span>
+                </div>
+            </div>
+            <br>
+            <div class="schedule">
+                <h2 class="title">3. Extra Equipment Needed</h2>
+                <div class="inner">
+                    <input type="checkbox" name="equipment" value="PC">
+                    <label>PC</label>
+                    <br>
+                    <input type="checkbox" name="equipment" value="Projector">
+                    <label>Projector</label>
+                    <br>
+                    <input type="checkbox" name="equipment" value="Servers & Switches">
+                    <label>Servers & Switches</label>
+                    <br>
+                    <input type="checkbox" name="equipment" value="Chairs">
+                    <label>Chairs</label>
+                    <br>
+                    <input type="checkbox" name="equipment" value="Tables">
+                    <label>Tables</label>
+                </div>
+            </div>
+            <br>
+            <div class="schedule">
+                <h2 class="title">4. Remarks</h2>
+                <div class="inner">
+                    <input textarea id="remarks" name="remarks"></textarea>
+                </div>
+            </div>
+            <br>
+            <button class="submit" id="submit" type="submit" name="submit">Submit</button>
+            <br>
+        </form>
+        <script src="js/createreservation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.72.0">
+  <title>AnimoDibs | <%=roomSolo.room_num%></title>
+  
+  <link rel="stylesheet" type="text/css" href="/css/room-details.css">
+  <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+      <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+            <li>
+              <img src="/pics/logo.png" class="logo">
+            </li>
+            <li class="choices">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/reservation">Create Reservation</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/favorites">Favorites</a>
+            </li>
+            <li class="choices">
+              <a class="nav-link" href="/rooms">Rooms</a>
+            </li>
+
+            <div class="username">
+              <p class="initials">
+                JC<span><b><%=lname%></span><span>,</span><span>&nbsp;&nbsp;<%= fname %></span></b>
+              </p>
+            </div>
+            <div class="new-menu">
+              <nav>
+                <img src="/pics/arrow-down.png" class="menu-pic" onclick="toggleMenu()">
+                <div class="sub-menu-wrap" id="subMenu">
+                  <div class="sub-menu">
+                    <a href="myaccount.html" class="sub-menu-link">
+                      <p>My Account<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                    </a>
+                    <a href="/auth/logout" class="sub-menu-link">
+                      <p>Logout<span>&nbsp; &nbsp; &nbsp; &nbsp;></span></p>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+
+            </div>
+        </div>
+      </div>
+    </nav>
+    <script src="/js/dash.js"></script>
+  </header>
+
+  <div class="information"><br><br><br><br>
+    <img class="room" id="mainPic" src="/<%= roomSolo.img[0]%>" alt="room">
+    <div class="img-carousel">
+      <img class="thumbnails" id="thMain" src="/<%= roomSolo.img[0]%>" alt="room" onclick="enlargePic(id)"><br>
+      <img class="thumbnails" id="th1" src="/<%= roomSolo.img[1]%>" onclick="enlargePic(id)"><br>
+      <img class="thumbnails" id="th2" src="/<%= roomSolo.img[2]%>" onclick="enlargePic(id)"><br>
+      <img class="thumbnails" id="th3" src="/pics/maps/<%= roomSolo.room_num%>.png" onclick="enlargePic(id)">
+    </div>
+    <div class="details">
+      <h3 id="name"><%= roomSolo.room_num %></h3>
+      <div class="sub-details">
+        <label id="location">LOCATION: <%= roomSolo.location%></p>
+          <p id="floor">FLOOR: <%= roomSolo.floor%></p>
+          <p id="numberGuest">MAX # OF GUESTS: <%= roomSolo.guest_num%></p>
+          <p id="roomId" value="<%= roomSolo.room_num%>"></p>
+      </div>
+      <br><br><br>
+      <div class="sub-details">
+        <p>Special Equipments:</p>
+        <ul>
+          <% for(let i=0; i<roomSolo.equipments.length; i++) {%>
+            <li><%= roomSolo.equipments[i] %></li>
+          <% } %>
+        </ul>
+      </div>
+      <div id="favorite">
+        <button type="submit" id="btn-favorite" onclick="addFav()" value="0">Add to Favorites</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="input-sched">
+    <hr>
+    <div class="date_toFrom">
+      <form action='/rooms/:id/:date_to' method='get'>
+        <label class="form-label date-label col" for="daterange">DATE:</label>
+        <input class="form-control col" id="inputdate" type="text" name="daterange" value="01/01/2023 - 01/01/2023" />
+        <img class="calendar-icon" src="/pics/calendar.png"></span>
+      </form>
+    </div>
+    <div class="input-day">
+      <form>
+        <span class="day"><input type="checkbox" value="any" checked>&nbsp;Any Day</span>
+        <span class="day"><input type="checkbox" value="mon">&nbsp;Monday</span>
+        <span class="day"><input type="checkbox" value="tues">&nbsp;Tuesday</span>
+        <span class="day"><input type="checkbox" value="wed">&nbsp;Wednesday</span>
+        <span class="day"><input type="checkbox" value="thurs">&nbsp;Thursday</span>
+        <span class="day"><input type="checkbox" value="fri">&nbsp;Friday</span>
+        <span class="day"><input type="checkbox" value="sat">&nbsp;Saturday</span>
+      </form>
+    </div>
+    <div class="submit">
+      <form>
+        <input class="btn1a" type="button" value="Search" onclick="searchDate()">
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <table class="schedule">
+      <tr>
+        <th>Time </th>
+        <th>Availability</th>
+        <th>Reserve</th>
+        <th>Details</th>
+      </tr>
+      
+      <tr>
+        <td class="form-time"> 7:30 - 9:00 </td>
+        
+          <td id="sched1" class="available"> AVAILABLE </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-reserve" onclick="openReservation()">RESERVE</button> </td>
+        
+          <!-- <td id="sched1" class="reserved"> RESERVED </td>
+          <td id="status1" class="col-status"><button type="submit" class="btn-waitlist" onclick="openPopupWait()">WAITLIST</button></td>
+         -->
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time"> 9:15 - 10:45 </td>
+        <td id="sched2" class="available"> AVAILABLE </td>
+        <td id="status2" class="col-status"><button type="submit" class="btn-reserve"
+            onclick="openReservation()">RESERVE</button> </td>
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+
+      </tr>
+      <tr>
+        <td class="form-time"> 11:00 - 12:30 </td>
+        <td id="sched3" class="reserved"> RESERVED </td>
+        <td id="status3" class="col-status"><button type="submit" class="btn-waitlist"
+            onclick="openPopupWait()">WAITLIST</button></td>
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time"> 12:45 - 2:15 </td>
+        <td id="sched4" class="reserved"> RESERVED </td>
+        <td id="status4" class="col-status"><button type="submit" class="btn-waitlist"
+            onclick="openPopupWait()">WAITLIST</button></td>
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time"> 2:30 - 4:00 </td>
+        <td id="sched5" class="reserved"> RESERVED </td>
+        <td id="status5" class="col-status"><button type="submit" class="btn-waitlist"
+            onclick="openPopupWait()">WAITLIST</button></td>
+        <td class="col-details"> <button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time"> 4:15 - 5:45 </td>
+        <td id="sched6" class="reserved"> RESERVED </td>
+        <td id="status6" class="col-status"><button type="submit" class="btn-waitlist"
+            onclick="openPopupWait()">WAITLIST</button></td>
+        <td class="col-details"> <button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+      <tr>
+        <td class="form-time"> 6:00 - 7:30 </td>
+        <td id="sched7" class="reserved"> RESERVED </td>
+        <td id="status7" class="col-status"><button type="submit" class="btn-waitlist"
+            onclick="openPopupWait()">WAITLIST</button></td>
+        <td class="col-details"><button type="submit" class="view-details" onclick="openPopup()">View Details</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="popup-details" id="popup-details">
+    <h3> Schedule </h3>
+    <p>Event Name: [none]</p>
+    <p>Event Organizer: [none]</p>
+    <p>Remarks: [none]</p>
+    <button type="button" onclick="closePopup()">Close</button>
+  </div>
+
+  <div class="popup-details" id="popup-waitlist">
+    <h3> Waitlisted! </h3>
+    <p>Your account was added to the waitlist!</p>
+    <p>You will be notified for the room availability</p>
+    <button type="button" onclick="closePopupWait()">Close</button>
+  </div>
+
+  <script>
+    function enlargePic(picId) {
+      const large = document.getElementById("mainPic").src;
+      const small = document.getElementById(picId).src;
+      console.log(large + "-before--" + small);
+      document.getElementById("mainPic").src = small;
+      //document.getElementById("th1").src=large;
+      console.log(large + "-after--" + small);
+    }
+
+    function openReservation() {
+      window.location.href = "/confirm";
+    }
+
+    $(function () {
+      $('input[name="daterange"]').daterangepicker({
+        opens: 'left'
+      }, function (start, end, label) {
+        searchDate(start.format('MM-DD-YYYY'), end.format('MM-DD-YYYY'))
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        let selectDate = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
+        return selectDate
+      });
+    });
+
+    function addFav() {
+      let x = document.getElementById("btn-favorite").value;
+      if (x == 0) {
+        document.getElementById("btn-favorite").innerHTML = 'Added to favorites';
+        document.getElementById("btn-favorite").value = 1;
+      }
+      else {
+        document.getElementById("btn-favorite").innerHTML = 'Add to favorites';
+        document.getElementById("btn-favorite").value = 0;
+      }
+
+    }
+
+    let today = new Date();
+    let day = today.getDay();
+    let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+    document.getElementById("inputdate").value = date + ' - ' + date;
+    console.log(date + ' - ' + date);
+
+    let popup = document.getElementById("popup-details");
+    function openPopup() {
+      popup.classList.add("open-popup");
+      console.log("open");
+    }
+    function closePopup() {
+      popup.classList.remove("open-popup");
+    }
+
+    let popup2 = document.getElementById("popup-waitlist");
+    function openPopupWait() {
+      popup2.classList.add("open-popup");
+      console.log("open");
+    }
+    function closePopupWait() {
+      popup2.classList.remove("open-popup");
+    }
+
+    
+    function searchDate(start, end, roomId){
+      window.location.href = "/rooms/"+ roomId +"/"+start;
+      console.log(start, end)
+    }
+
+    function createReservation(){
+      //reservations.posts.find
+    }
+  </script>
+</body>
+
+</html>
